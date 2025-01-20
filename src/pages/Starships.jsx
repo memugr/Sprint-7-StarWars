@@ -30,7 +30,7 @@ const Starships = () => {
 
     if (loading) {
         return (
-            <div className="flex items-center justify-center h-screen bg-gray-900 text-white">
+            <div className="flex items-center justify-center h-screen text-white">
                 <p>Loading starships...</p>
             </div>
         )
@@ -38,7 +38,7 @@ const Starships = () => {
 
     if (error) {
         return (
-            <div className="flex items-center justify-center h-screen bg-gray-900 text-red-500">
+            <div className="flex items-center justify-center h-screen text-red-500">
                 <p>{error}</p>
             </div>
         );
@@ -49,7 +49,7 @@ const Starships = () => {
             {starships.map((starship, index) => (
                 <StarshipItem
                     key={index}
-                    name={starship.name}
+                    name={starship.name.toUpperCase()}
                     model={starship.model}
                 />
             ))}
