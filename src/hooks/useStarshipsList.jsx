@@ -8,6 +8,7 @@ const useFetchStarships = (url) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setLoading(true);
                 const response = await fetch(url);
 
                 if (!response.ok) {

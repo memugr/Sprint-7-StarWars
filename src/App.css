@@ -8,7 +8,8 @@
   font-family: 'Gruppo';
 }
 
-.starship-box {
+.starship-box, .starship-details {
   background-color: #212121; 
   color: #ffffff; 
 }
+
