@@ -5,10 +5,10 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: start;
+  font-family: 'Gruppo';
 }
 
 .starship-box {
-  font-family: 'Gruppo';
   background-color: #212121; 
   color: #ffffff; 
 }
