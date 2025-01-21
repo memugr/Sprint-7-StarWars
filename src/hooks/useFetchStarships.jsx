@@ -1,32 +1,35 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
-const useFetchStarships = (url) => {
+const useFetchStarships = (initialUrl) => {
     const [data, setData] = useState([]);
+    const [next, setNext] = useState(initialUrl);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true);
-                const response = await fetch(url);
+    const fetchStarships = useCallback(async () => {
+        if (!next) return;
+        setLoading(true);
 
-                if (!response.ok) {
-                    throw new Error("Error while fetching the data");
-                }
-                const result = await response.json();
-                setData(result.results || []);
-            } catch (error) {
-                setError(error.message);
-            } finally {
-                setLoading(false);
+        try {
+            const response = await fetch(next);
+            if (!response.ok) {
+                throw new Error("Error while fetching the data");
             }
-        };
+            const result = await response.json();
+            setData((prevData) => [...prevData, ...result.results]);
+            setNext(result.next);
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setLoading(false);
+        }
+    }, [next]);
 
-        fetchData();
-    }, [url]);
+    useEffect(() => {
+        fetchStarships();
+    }, [fetchStarships]);
 
-    return { data, loading, error };
+    return { data, loading, error, fetchStarships, next };
 };
 
 export default useFetchStarships;

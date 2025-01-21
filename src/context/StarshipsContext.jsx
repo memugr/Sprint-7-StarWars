@@ -6,8 +6,8 @@ const StarshipsContext = createContext();
 export const StarshipsProvider = ({ children }) => {
     const [selectedStarship, setSelectedStarship] = useState(null);
     
-    const API_Url = 'https://swapi.py4e.com/api/starships/'
-    const { data: starships, loading, error } = useFetchStarships(API_Url);
+    const API_Url = "https://swapi.dev/api/starships/?page=1";
+    const { data: starships, loading, error, fetchStarships, next } = useFetchStarships(API_Url);
 
     return (
         <StarshipsContext.Provider
@@ -17,6 +17,8 @@ export const StarshipsProvider = ({ children }) => {
                 error,
                 selectedStarship,
                 setSelectedStarship,
+                fetchStarships,
+                next,
             }}
         >
             {children}
@@ -25,4 +27,3 @@ export const StarshipsProvider = ({ children }) => {
 };
 
 export const useStarships = () => useContext(StarshipsContext);
-
