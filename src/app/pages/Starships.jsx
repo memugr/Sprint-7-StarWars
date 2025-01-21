@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
+
+//Components
 import StarshipItem from "../../components/StarshipItem";
-import useStarshipsList from "../../hooks/useFetchStarships";
 import StarshipDetails from "../../components/StarshipDetails";
 import ViewMoreButton from "../../components/ViewMoreButton";
 
+//Context
+import { useStarships } from "../../context/StarshipsContext";
+
 const Starships = () => {
-    const API_Url = 'https://swapi.py4e.com/api/starships/'
-    const { data: starships, loading, error } = useStarshipsList(API_Url);
-    const [selectedStarship, setSelectedStarship] = useState(null)
+    const { starships, selectedStarship, setSelectedStarship, loading, error } = useStarships();
 
     if (loading) {
         return (
@@ -29,7 +31,10 @@ const Starships = () => {
         <div className="p-2">
             {selectedStarship ? (
                 <div>
-                    <StarshipDetails starship={selectedStarship} onBack={() => setSelectedStarship(null)} />
+                    <StarshipDetails
+                        starship={selectedStarship}
+                        onBack={() => setSelectedStarship(null)}
+                    />
                 </div>
             ) : (
                 <div className="flex flex-col gap-4 w-fit">
@@ -53,4 +58,4 @@ const Starships = () => {
     )
 }
 
-export default Starships
+export default Starships;
