@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import StarshipItem from "../components/StarshipItem";
-import useStarshipsList from "../hooks/useFetchStarships";
-import StarshipDetails from "../components/StarshipDetails";
-import ViewMoreButton from "../components/ViewMoreButton";
+import StarshipItem from "../../components/StarshipItem";
+import useStarshipsList from "../../hooks/useFetchStarships";
+import StarshipDetails from "../../components/StarshipDetails";
+import ViewMoreButton from "../../components/ViewMoreButton";
 
 const Starships = () => {
     const API_Url = 'https://swapi.py4e.com/api/starships/'
