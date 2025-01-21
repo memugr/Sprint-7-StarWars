@@ -1,12 +1,15 @@
 import '../styles/App.css'
 import Starships from './pages/Starships';
-import { StarshipsProvider } from '../context/StarshipsContext';
+import { AppProvider } from './provider.jsx';
+import { StarshipsProvider } from '../context/StarshipsProvider.jsx';
 
 function App() {
     return (
-        <StarshipsProvider>
-            <Starships />
-        </StarshipsProvider>
+        <AppProvider>
+            <StarshipsProvider>
+                <Starships />
+            </StarshipsProvider>
+        </AppProvider>
     )
 }
 

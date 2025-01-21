@@ -1,29 +1,11 @@
-import React, { createContext, useContext, useState } from "react";
-import useFetchStarships from "../hooks/useFetchStarships";
+import { createContext, useContext } from 'react'
 
-const StarshipsContext = createContext();
+export const StarshipsContext = createContext()
 
-export const StarshipsProvider = ({ children }) => {
-    const [selectedStarship, setSelectedStarship] = useState(null);
-    
-    const API_Url = "https://swapi.dev/api/starships/?page=1";
-    const { data: starships, loading, error, fetchStarships, next } = useFetchStarships(API_Url);
-
-    return (
-        <StarshipsContext.Provider
-            value={{
-                starships,
-                loading,
-                error,
-                selectedStarship,
-                setSelectedStarship,
-                fetchStarships,
-                next,
-            }}
-        >
-            {children}
-        </StarshipsContext.Provider>
-    );
-};
-
-export const useStarships = () => useContext(StarshipsContext);
+export function useStarshipsContext() {
+    const context = useContext(StarshipsContext)
+    if (!context) {
+        throw new Error('useStarshipsContext must be used within a StarshipsProvider')
+    }
+    return context
+}
