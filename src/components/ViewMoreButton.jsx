@@ -1,8 +1,8 @@
 import React from "react";
-import { useStarshipsContext } from "../context/StarshipsContext"; // Update this import path
+import { useStarshipsContext } from "../context/StarshipsContext";
 
 const ViewMoreButton = () => {
-    const { fetchStarships, loading, next } = useStarshipsContext(); // Use the hook instead of StarshipsProvider
+    const { fetchStarships, loading, next } = useStarshipsContext(); 
     if (!next) return null;
     
     return (

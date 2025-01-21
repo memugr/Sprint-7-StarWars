@@ -6,7 +6,7 @@ import StarshipDetails from "../../components/StarshipDetails";
 import ViewMoreButton from "../../components/ViewMoreButton";
 
 //Context
-import { useStarshipsContext  } from "../../context/StarshipsContext";
+import { useStarshipsContext } from "../../context/StarshipsContext";
 
 const Starships = () => {
     const { starships, selectedStarship, setSelectedStarship, loading, error } = useStarshipsContext();

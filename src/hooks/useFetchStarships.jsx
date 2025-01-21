@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 const useFetchStarships = (initialUrl) => {
     const [data, setData] = useState([]);
     const [next, setNext] = useState(initialUrl);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const fetchStarships = useCallback(async () => {
@@ -26,8 +26,10 @@ const useFetchStarships = (initialUrl) => {
     }, [next]);
 
     useEffect(() => {
-        fetchStarships();
-    }, [fetchStarships]);
+        if (!data.length) {
+            fetchStarships();
+        }
+    }, [fetchStarships, data.length]);
 
     return { data, loading, error, fetchStarships, next };
 };
