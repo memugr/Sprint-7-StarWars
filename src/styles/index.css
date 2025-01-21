@@ -20,4 +20,8 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url('../assets/background.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

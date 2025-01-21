@@ -1,13 +1,14 @@
 import '../styles/App.css'
-import Starships from './pages/Starships';
 import { AppProvider } from './provider.jsx';
 import { StarshipsProvider } from '../context/StarshipsProvider.jsx';
+import { RouterProvider } from 'react-router-dom';
+import router from './routes.jsx';
 
 function App() {
     return (
         <AppProvider>
             <StarshipsProvider>
-                <Starships />
+                <RouterProvider router={router} />
             </StarshipsProvider>
         </AppProvider>
     )

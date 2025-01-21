@@ -4,6 +4,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  padding-top: 14rem;
   text-align: start;
   font-family: 'Gruppo';
 }
@@ -13,3 +14,6 @@
   color: #ffffff; 
 }
 
+.navbar {
+  background-color: #212121; 
+}
