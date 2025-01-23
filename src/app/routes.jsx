@@ -1,17 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
-import Navbar from './pages/Navbar.jsx';
+import RootLayout from './rootLayout.jsx';
 import Starships from './pages/Starships.jsx';
 import Home from './pages/Home.jsx';
-
-const RootLayout = () => {
-    return (
-        <>
-            <Navbar />
-            <Outlet />
-        </>
-    );
-};
 
 const router = createBrowserRouter([
     {
@@ -20,13 +10,13 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home /> 
+                element: <Home />
             },
             {
                 path: '/starships',
-                element: <Starships /> 
+                element: <Starships />
             },
-            ]
+        ]
     }
 ]);
 
