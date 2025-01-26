@@ -9,7 +9,7 @@
   font-family: 'Gruppo';
 }
 
-.starship-box, .starship-details {
+.starship-box, .starship-details, .modal {
   background-color: #212121; 
   color: #ffffff; 
 }
