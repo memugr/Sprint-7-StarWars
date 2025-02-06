@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import RootLayout from './rootLayout.jsx';
 import Starships from './pages/Starships.jsx';
 import Home from './pages/Home.jsx';
-import ProtectedRoute from '../components/ProtectedRoute.jsx';
+import ProtectedRoute from '../components/starship/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
     {

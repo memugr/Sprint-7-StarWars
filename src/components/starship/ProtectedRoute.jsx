@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useAuth } from "../context/AuthContext";
-import LoginRequiredModal from "./LoginRequiredModal";
+import React, { useState, useEffect } from "react";
+import { useAuth } from "../../context/AuthContext";
+import LoginRequiredModal from "../modal/LoginRequiredModal";
 
 const ProtectedRoute = ({ children }) => {
     const { user } = useAuth();
@@ -8,8 +8,13 @@ const ProtectedRoute = ({ children }) => {
 
     const handleModalClose = () => setModalOpen(false);
 
+    useEffect(() => {
+        if (!user) {
+            setModalOpen(true);
+        }
+    }, [user]);
+
     if (!user) {
-        setTimeout(() => setModalOpen(true), 0);
         return (
             <>
                 <LoginRequiredModal

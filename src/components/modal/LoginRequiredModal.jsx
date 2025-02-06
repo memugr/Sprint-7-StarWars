@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const LoginRequiredModal = ({ isOpen, onClose }) => {
+const LoginRequiredModal = ({ isOpen }) => {
     const navigate = useNavigate();
     
     const handleClose = () => {
@@ -11,7 +11,7 @@ const LoginRequiredModal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0  bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
             <div className="modal rounded-md p-6 w-96">
                 <h2 className="text-center text-lg font-semibold mb-4">
                     Login Required

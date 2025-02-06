@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import starWarsLogo from "../assets/logo.png"
+import starWarsLogo from "../../assets/logo.png"
 
 const LogoSection = () => (
     <div className="mb-4">

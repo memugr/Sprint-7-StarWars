@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import SocialLinks from "../../components/SocialLinks";
-import AuthButtons from "../../components/AuthButtons";
-import LogoSection from "../../components/LogoSection";
-import NavLinks from "../../components/NavLinks";
-import Modal from "../../components/Modal";
-import RegisterForm from "../../components/RegisterForm";
-import LoginForm from "../../components/LoginForm";
+//navbar
+import SocialLinks from "../../components/navbar/SocialLinks";
+import LogoSection from "../../components/navbar/LogoSection";
+import NavLinks from "../../components/navbar/NavLinks";
+
+//modal
+import Modal from "../../components/modal/Modal";
+
+//auth
+import AuthButtons from "../../components/auth/AuthButtons";
+import RegisterForm from "../../components/auth/RegisterForm";
+import LoginForm from "../../components/auth/LoginForm";
 
 const Navbar = () => {
     const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);

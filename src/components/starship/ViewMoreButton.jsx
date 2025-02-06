@@ -1,5 +1,5 @@
 import React from "react";
-import { useStarshipsContext } from "../context/StarshipsContext";
+import { useStarshipsContext } from "../../context/StarshipsContext";
 
 const ViewMoreButton = () => {
     const { fetchStarships, loading, next } = useStarshipsContext(); 

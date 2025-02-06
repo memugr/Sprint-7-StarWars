@@ -1,9 +1,9 @@
 import React from "react";
 
 //Components
-import StarshipItem from "../../components/StarshipItem";
-import StarshipDetails from "../../components/StarshipDetails";
-import ViewMoreButton from "../../components/ViewMoreButton";
+import StarshipItem from "../../components/starship/StarshipItem";
+import StarshipDetails from "../../components/starship/StarshipDetails";
+import ViewMoreButton from "../../components/starship/ViewMoreButton";
 
 //Context
 import { useStarshipsContext } from "../../context/StarshipsContext";
