@@ -4,9 +4,9 @@ import { StarshipsContext } from "./StarshipsContext";
 
 export const StarshipsProvider = ({ children }) => {
     const [selectedStarship, setSelectedStarship] = useState(null);
-    
-    const API_Url = "https://swapi.dev/api/starships/?page=1";
-    const { data: starships, loading, error, fetchStarships, next } = useFetchStarships(API_Url);
+
+    const API_URL = `${import.meta.env.VITE_API_URL}/starships/?page=1`;
+    const { data: starships, loading, error, fetchStarships, next } = useFetchStarships(API_URL);
     
     return (
         <StarshipsContext.Provider
