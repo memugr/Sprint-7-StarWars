@@ -1,8 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 import RootLayout from './rootLayout.jsx';
 import Starships from './pages/Starships.jsx';
-import Home from './pages/Home.jsx';
-import Error from './pages/Error.jsx';
+import HomePage from './pages/HomePage.jsx';
+import ErrorPage from './pages/ErrorPage.jsx';
+import StarshipDetailsPage from './pages/StarshipDetailsPage.jsx';
 import ProtectedRoute from '../components/starship/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home />
+                element: <HomePage />
             },
             {
                 path: '/starships',
@@ -23,8 +24,16 @@ const router = createBrowserRouter([
                 )
             },
             {
+                path: '/starships/:name',
+                element: (
+                    <ProtectedRoute>
+                        <StarshipDetailsPage />
+                    </ProtectedRoute>
+                )
+            },
+            {
                 path: '*',
-                element: <Error />
+                element: <ErrorPage />
             },
         ]
     }

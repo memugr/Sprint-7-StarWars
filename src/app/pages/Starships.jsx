@@ -1,15 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 //Components
 import StarshipItem from "../../components/starship/StarshipItem";
-import StarshipDetails from "../../components/starship/StarshipDetails";
 import ViewMoreButton from "../../components/starship/ViewMoreButton";
 
 //Context
 import { useStarshipsContext } from "../../context/StarshipsContext";
 
 const Starships = () => {
-    const { starships, selectedStarship, setSelectedStarship, loading, error } = useStarshipsContext();
+    const { starships, loading, error } = useStarshipsContext();
+    const navigate = useNavigate();
 
     if (loading) {
         return (
@@ -29,31 +30,21 @@ const Starships = () => {
 
     return (
         <div className="p-2">
-            {selectedStarship ? (
-                <div>
-                    <StarshipDetails
-                        starship={selectedStarship}
-                        onBack={() => setSelectedStarship(null)}
-                    />
-                </div>
-            ) : (
-                <div className="flex flex-col gap-4 w-fit">
-                    {starships.map((starship, index) => (
-                        <button
-                            key={index}
-                            className="rounded-sm text-left w-full"
-                            onClick={() => setSelectedStarship(starship)}
-                        >
-                            <StarshipItem
-                                name={starship.name.toUpperCase()}
-                                model={starship.model}
-                            />
-                        </button>
-                    ))}
-
-                    <ViewMoreButton />
-                </div>
-            )}
+            <div className="flex flex-col gap-4 w-fit">
+                {starships.map((starship, index) => (
+                    <button
+                        key={index}
+                        className="rounded-sm text-left w-full"
+                        onClick={() => navigate(`/starships/${starship.name.toLowerCase()}`)}
+                    >
+                        <StarshipItem
+                            name={starship.name.toUpperCase()}
+                            model={starship.model}
+                        />
+                    </button>
+                ))}
+                <ViewMoreButton />
+            </div>
         </div>
     )
 }
