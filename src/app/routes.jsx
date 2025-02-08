@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import RootLayout from './rootLayout.jsx';
 import Starships from './pages/Starships.jsx';
 import Home from './pages/Home.jsx';
+import Error from './pages/Error.jsx';
 import ProtectedRoute from '../components/starship/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
                         <Starships />
                     </ProtectedRoute>
                 )
+            },
+            {
+                path: '*',
+                element: <Error />
             },
         ]
     }
