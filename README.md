@@ -64,9 +64,11 @@ npm run dev
 ├── src/                       # Source code of the application
 │   ├── app/                       # Core application setup
 │   │   ├── pages/                   # Individual page components
-│   │   │    ├── Home.jsx              # Home page component
-│   │   │    ├── Navbar.jsx            # Navigation bar component
-│   │   │    └── Starships.jsx         # Starships listing page
+│   │   │    ├── ErrorPage.jsx              # Error page component
+│   │   │    ├── HomePage.jsx               # Home page component
+│   │   │    ├── Navbar.jsx                 # Navigation bar component
+│   │   │    ├── StarshipsDetailsPage,jsx   # Detailed starship page 
+│   │   │    └── Starships.jsx              # Starships listing page
 │   │   ├── App.jsx                  # Main App component with routing setup
 │   │   ├── provider.jsx             # Global provider wrapping
 │   │   ├── rootLayout.jsx           # Root layout with navigation bar and page
